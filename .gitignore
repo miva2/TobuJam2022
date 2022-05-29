@@ -9,6 +9,7 @@ TobuJam2022Unity/[Bb]uild/
 TobuJam2022Unity/[Bb]uilds/
 TobuJam2022Unity/[Ll]ogs/
 TobuJam2022Unity/[Mm]emoryCaptures/
+TobuJam2022Unity/UserSettings
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !TobuJam2022Unity/[Aa]ssets/**/*.meta
@@ -57,4 +58,3 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-
