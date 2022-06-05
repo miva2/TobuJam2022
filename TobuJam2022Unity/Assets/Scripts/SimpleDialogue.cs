@@ -7,27 +7,33 @@ public class SimpleDialogue : MonoBehaviour, Talkable
 
     public Dialogue dialogue;
     public GameObject talkableIcon;
+    // public Collider2D conversationRangeCollider; // not sure how to use this for triggering collision
 
     private bool talkedTo = false;
     private int currentCueIndex = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         talkableIcon.SetActive(false);
 
     }
 
-    // Update is called once per frame
-    void Update()
+    // TODO: I don't want to be dependent on the gameobject having a collider. I want to use the given collider instead. Not sure how to do that
+    // this might be a solution: https://answers.unity.com/questions/867859/how-to-detect-ontriggerenter-on-another-gameobject.html
+    // but for now this is good enough I guess
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // check if player is withing conversation range and show talkableIcon
+        if (collision.CompareTag(Tags.PLAYER))
+        {
+            talkableIcon.SetActive(true);
+            startConversation(); // TODO: should start only when player presses button
+        }
     }
 
     public void startConversation()
     {
+        
         //TODO: pop up dialogue box with first cue
-
         nextCue();
     }
 
