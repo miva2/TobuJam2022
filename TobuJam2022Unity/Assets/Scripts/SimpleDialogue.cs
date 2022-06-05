@@ -30,6 +30,15 @@ public class SimpleDialogue : MonoBehaviour, Talkable
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag(Tags.PLAYER))
+        {
+            talkableIcon.SetActive(false);
+            currentCueIndex = 0;
+        }
+    }
+
     public void startConversation()
     {
         
