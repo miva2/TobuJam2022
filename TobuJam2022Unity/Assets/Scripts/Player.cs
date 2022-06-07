@@ -43,7 +43,14 @@ public class Player : MonoBehaviour
         moveInput = playerActions.Gameplay.Movement.ReadValue<Vector2>();
         moveInput.y = 0f; // temporary fix in tutorial
         rigidBody.velocity = moveInput * speed;
-        animator.SetBool("isFacingRight", moveInput.x > 0); //TODO: set name as constant!
+        
+        
+        animator.SetBool("isIdle", moveInput.x == 0);
+        if(moveInput.x != 0)
+        {
+            animator.SetBool("isFacingRight", moveInput.x > 0); //TODO: set name as constant!
+        }
+        
     }
     // Start is called before the first frame update
     void Start()
