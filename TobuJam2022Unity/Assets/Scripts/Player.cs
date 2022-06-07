@@ -9,19 +9,8 @@ public class Player : MonoBehaviour
     private PlayerInputActions playerActions;
     private Rigidbody2D rigidBody;
     private Vector2 moveInput;
+    private Animator animator;
 
-
-    private void Awake()
-    {
-        playerActions = new PlayerInputActions();
-
-        rigidBody = GetComponent<Rigidbody2D>();
-        if(rigidBody is null)
-        {
-            Debug.LogError("RigidBody2D is null!");
-        }
-       
-    }
     private void OnEnable()
     {
         playerActions.Gameplay.Enable();
@@ -32,11 +21,29 @@ public class Player : MonoBehaviour
         playerActions.Gameplay.Disable();
     }
 
+    private void Awake()
+    {
+        playerActions = new PlayerInputActions();
+
+        rigidBody = GetComponent<Rigidbody2D>();
+        if(rigidBody is null)
+        {
+            Debug.LogError("RigidBody2D is null!");
+        }
+
+        animator = GetComponent<Animator>();
+        if (animator is null)
+        {
+            Debug.LogError("Animator is null!");
+        }
+    }
+   
     private void FixedUpdate()
     {
         moveInput = playerActions.Gameplay.Movement.ReadValue<Vector2>();
         moveInput.y = 0f; // temporary fix in tutorial
         rigidBody.velocity = moveInput * speed;
+        animator.SetBool("isFacingRight", moveInput.x > 0); //TODO: set name as constant!
     }
     // Start is called before the first frame update
     void Start()
