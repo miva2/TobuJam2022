@@ -8,8 +8,8 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Idle right
-  m_Speed: 1
-  m_CycleOffset: 0
+  m_Speed: 0
+  m_CycleOffset: 0.76
   m_Transitions: []
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
@@ -170,8 +170,8 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Idle left
-  m_Speed: 1
-  m_CycleOffset: 0
+  m_Speed: 0
+  m_CycleOffset: 0.75
   m_Transitions: []
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
